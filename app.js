@@ -23,14 +23,19 @@ let rl
  */
 function log () {
   if (rl) {
-    rl.clearLine()    
-    rl.close()
-    rl = undefined
+    // rl.clearLine()    
+    // rl.close()
+    // rl = undefined
+    rl.pause()
   }
   for (let i = 0, len = arguments.length; i < len; i++) {
     console.log(arguments[i])
   }
-  askUser()
+
+  // askUser()
+  if(rl) {
+    rl.resume()
+  }
 }
 
 /*
@@ -43,7 +48,7 @@ const askUser = async () => {
     output: process.stdout
   })
 
-  rl.question('Send message: ', message => {
+  rl.question('Send message: ', message => {//waiting here...
     // Broadcast to peers
     for (let id in peers) {
       peers[id].conn.write(message)
