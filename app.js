@@ -48,7 +48,7 @@ const askUser = async () => {
     output: process.stdout
   })
 
-  rl.question('Send message: ', message => {//waiting here...
+  rl.question('Send message: ', message => {
     // Broadcast to peers
     for (let id in peers) {
       peers[id].conn.write(message)
@@ -131,6 +131,11 @@ const sw = Swarm(config)
     connSeq++
 
   })
+
+  sw.on('peer', (peer) => {
+    // log(`Peer information: `, peer)
+  })
+
 
   // Read user message from command line
   askUser()  
