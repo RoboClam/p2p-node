@@ -22,5 +22,6 @@
     "discovery-swarm": "^6.1.0",
     "get-port": "^5.1.1",
     "portfinder": "^1.0.28"
-  }
+  },
+  "devDependencies": {}
 }
